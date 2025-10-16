@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The ChitraHarsha - Inclusive Games, Blogs & Premium Content</title>
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Discover inclusive indoor games for all ages on The ChitraHarsha. Explore our blog, freemium content, and premium plans with our secure VPK Pay system supporting UPI and Crypto."
+    />
+    <meta
+      name="keywords"
+      content="indoor games, gender equality games, educational games, ChitraHarsha, Indian games, Bala Krīḍā, VPK Pay, freemium games"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc;
+      }
+      .filter-btn.active {
+        background-color: #4f46e5;
+        color: white;
+        box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+        transform: translateY(-2px);
+      }
+      .filter-btn {
+        transition: all 0.3s ease;
+      }
+      .game-card,
+      .blog-card {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        border: 1px solid #e2e8f0;
+      }
+      .modal {
+        transition: opacity 0.3s ease-in-out;
+      }
+      .modal-content {
+        transition: transform 0.3s ease-in-out;
+      }
+      .tab-btn.active {
+        border-color: #4f46e5;
+        color: #4f46e5;
+        background-color: #eef2ff;
+      }
+      .payment-option.selected {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 2px #c7d2fe;
+      }
+    </style>
+  </head>
+  <body class="text-slate-800">
+    <!-- Navigation Bar -->
+    <nav
+      class="bg-white/80 backdrop-blur-md sticky top-0 z-40 shadow-sm border-b border-slate-200"
+    >
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center h-16">
+          <a
+            href="#"
+            class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600"
+            >The ChitraHarsha</a
+          >
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#games"
+              class="text-slate-600 hover:text-indigo-600 font-medium transition-colors"
+              >Games</a
+            >
+            <a
+              href="#blog"
+              class="text-slate-600 hover:text-indigo-600 font-medium transition-colors"
+              >Blog</a
+            >
+            <a
+              href="#about"
+              class="text-slate-600 hover:text-indigo-600 font-medium transition-colors"
+              >About Us</a
+            >
+            <a
+              href="#contact"
+              class="text-slate-600 hover:text-indigo-600 font-medium transition-colors"
+              >Contact</a
+            >
+          </div>
+          <div class="flex items-center">
+            <button
+              id="login-register-btn"
+              class="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-indigo-700 transition-transform transform hover:scale-105"
+            >
+              Login / Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+      <!-- Header Section -->
+      <header class="text-center pt-16 pb-12">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 mb-4"
+        >
+          The ChitraHarsha
+        </h1>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+          Discovering joy and equality through age-wise indoor games, inspired
+          by Indian heritage and powered by modern technology.
+        </p>
+      </header>
+
+      <!-- Games Section -->
+      <section id="games" class="py-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12"
+        >
+          Inclusive Indoor Games
+        </h2>
+        <!-- Filter Buttons -->
+        <nav
+          class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12"
+          id="filter-container"
+        >
+          <button
+            class="filter-btn active font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="all"
+          >
+            All Ages
+          </button>
+          <button
+            class="filter-btn font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="toddlers"
+          >
+            Bala Krīḍā (1-3)
+          </button>
+          <button
+            class="filter-btn font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="preschoolers"
+          >
+            Shishu Vihara (3-5)
+          </button>
+          <button
+            class="filter-btn font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="kids"
+          >
+            Kaumara Kautuka (6-9)
+          </button>
+          <button
+            class="filter-btn font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="pre-teens"
+          >
+            Kishora Jnana (10-12)
+          </button>
+          <button
+            class="filter-btn font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="teens"
+          >
+            Taruna Manthan (13-18)
+          </button>
+          <button
+            class="filter-btn font-semibold py-2 px-4 rounded-full bg-white shadow-sm hover:shadow-lg border border-slate-200"
+            data-filter="adults"
+          >
+            Praudh Vinoda (18+)
+          </button>
+        </nav>
+        <!-- Games Grid -->
+        <div
+          id="games-grid"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <!-- Game Card 1 -->
+          <div
+            class="game-card bg-white p-6 rounded-2xl shadow-lg"
+            data-age-group="toddlers"
+          >
+            <p class="text-sm font-medium text-indigo-500 mb-2">
+              Bala Krīḍā (Toddlers)
+            </p>
+            <h3 class="text-2xl font-bold text-indigo-700 mb-3">
+              Collaborative Building Blocks
+            </h3>
+            <p class="mb-4 text-slate-600">
+              A non-competitive activity where every child's contribution to a
+              shared structure is valued equally.
+            </p>
+          </div>
+          <!-- Game Card 2 (Premium) -->
+          <div
+            class="game-card bg-white p-6 rounded-2xl shadow-lg relative"
+            data-age-group="preschoolers"
+          >
+            <div
+              class="absolute top-4 right-4 bg-amber-400 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase"
+            >
+              Premium
+            </div>
+            <p class="text-sm font-medium text-teal-500 mb-2">
+              Shishu Vihara (Preschool)
+            </p>
+            <h3 class="text-2xl font-bold text-teal-700 mb-3">
+              AI-Powered Diverse Role-Play
+            </h3>
+            <p class="mb-4 text-slate-600">
+              Our AI generates dynamic scenarios, encouraging kids to explore
+              roles without gendered expectations.
+            </p>
+          </div>
+          <!-- Game Card 3 -->
+          <div
+            class="game-card bg-white p-6 rounded-2xl shadow-lg"
+            data-age-group="kids"
+          >
+            <p class="text-sm font-medium text-amber-500 mb-2">
+              Kaumara Kautuka (Kids)
+            </p>
+            <h3 class="text-2xl font-bold text-amber-700 mb-3">
+              Cooperative Storytelling
+            </h3>
+            <p class="mb-4 text-slate-600">
+              Values every voice and perspective equally. With NLP, the story
+              can take unexpected, creative turns.
+            </p>
+          </div>
+          <!-- Other game cards... -->
+        </div>
+      </section>
+
+      <!-- Pricing / Freemium Section -->
+      <section id="pricing" class="py-16 bg-slate-100 rounded-2xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+            Choose Your Plan
+          </h2>
+          <p class="text-lg text-slate-600 mt-2 max-w-2xl mx-auto">
+            Start for free or unlock the full potential of The ChitraHarsha with
+            our Premium plan.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Free Plan -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg border border-slate-200"
+          >
+            <h3 class="text-2xl font-bold text-slate-800">Freemium</h3>
+            <p class="text-slate-500 mt-2">
+              Access our basic collection of games and blogs.
+            </p>
+            <p class="text-4xl font-extrabold my-6">
+              ₹0
+              <span class="text-base font-medium text-slate-500">/ month</span>
+            </p>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Access to 10+ standard games
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Read all public blog posts
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Community access
+              </li>
+            </ul>
+            <button
+              class="w-full mt-8 py-3 px-6 border border-indigo-600 text-indigo-600 font-bold rounded-lg hover:bg-indigo-50 transition"
+            >
+              Your Current Plan
+            </button>
+          </div>
+          <!-- Premium Plan -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-2xl border-2 border-indigo-600 relative"
+          >
+            <p
+              class="absolute top-0 -translate-y-1/2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase"
+            >
+              Most Popular
+            </p>
+            <h3 class="text-2xl font-bold text-indigo-600">Premium</h3>
+            <p class="text-slate-500 mt-2">
+              Unlock AI features, exclusive content, and more.
+            </p>
+            <p class="text-4xl font-extrabold my-6">
+              ₹299
+              <span class="text-base font-medium text-slate-500">/ month</span>
+            </p>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Access to all 50+ games
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Exclusive AI-powered games
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >In-depth parental guides
+              </li>
+            </ul>
+            <button
+              id="go-premium-btn"
+              class="w-full mt-8 py-3 px-6 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-0.5"
+            >
+              Go Premium
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+            From Our Blog
+          </h2>
+          <p class="text-lg text-slate-600 mt-2 max-w-2xl mx-auto">
+            Insights, ideas, and inspiration for fostering creativity and
+            equality.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Blog Post 1 -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <img
+              src="https://placehold.co/600x400/a5b4fc/4338ca?text=Playful+Learning"
+              alt="Children playing with blocks"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <p class="text-sm font-medium text-indigo-500">Bala Krīḍā</p>
+              <h3
+                class="text-xl font-bold mt-2 mb-3 hover:text-indigo-600 transition-colors"
+              >
+                <a href="#">The Power of Collaborative Play for Toddlers</a>
+              </h3>
+              <p class="text-slate-600 text-sm">
+                Discover why sharing and building together is a cornerstone of
+                early childhood development and gender-neutral learning...
+              </p>
+            </div>
+          </article>
+          <!-- Blog Post 2 -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <img
+              src="https://placehold.co/600x400/6ee7b7/047857?text=Creative+Minds"
+              alt="Child dressed as an astronaut"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <p class="text-sm font-medium text-teal-500">Shishu Vihara</p>
+              <h3
+                class="text-xl font-bold mt-2 mb-3 hover:text-teal-600 transition-colors"
+              >
+                <a href="#"
+                  >Breaking Barriers: How Role-Playing Fights Stereotypes</a
+                >
+              </h3>
+              <p class="text-slate-600 text-sm">
+                When a child can be a scientist one day and a caregiver the
+                next, they learn that their potential is limitless...
+              </p>
+            </div>
+          </article>
+          <!-- Blog Post 3 -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <img
+              src="https://placehold.co/600x400/fcd34d/b45309?text=Story+Time"
+              alt="Group of kids telling stories"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <p class="text-sm font-medium text-amber-500">Kaumara Kautuka</p>
+              <h3
+                class="text-xl font-bold mt-2 mb-3 hover:text-amber-600 transition-colors"
+              >
+                <a href="#"
+                  >Your Voice Matters: Building Empathy Through Storytelling</a
+                >
+              </h3>
+              <p class="text-slate-600 text-sm">
+                Cooperative storytelling isn't just fun; it's a powerful tool
+                for teaching active listening and emotional intelligence...
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- About Us Section -->
+      <section id="about" class="py-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+          About The ChitraHarsha
+        </h2>
+        <div class="max-w-4xl mx-auto mt-6 text-slate-600 text-lg space-y-4">
+          <p>
+            <strong>ChitraHarsha</strong> (चित्रहर्ष), derived from Sanskrit,
+            means "wonderful joy." Our mission is to bring that joy into every
+            home through inclusive, engaging, and thoughtful play.
+          </p>
+          <p>
+            Founded on the principles of equality and inspired by India's rich
+            heritage of storytelling and intellectual games, we believe play is
+            a powerful tool. It can break down stereotypes, foster
+            collaboration, and build empathy. We are committed to creating a
+            safe, ad-free, and culturally-rooted digital playground for the next
+            generation of thinkers, creators, and leaders, all while adhering to
+            the highest standards of data privacy and security under Indian law.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Us Section -->
+      <section id="contact" class="py-16 bg-slate-100 rounded-2xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+            Get In Touch
+          </h2>
+          <p class="text-lg text-slate-600 mt-2">
+            Have questions or feedback? We'd love to hear from you.
+          </p>
+        </div>
+        <form class="max-w-xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 transition"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 transition"
+            />
+          </div>
+          <textarea
+            placeholder="Your Message"
+            rows="5"
+            class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 transition mb-4"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-0.5"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300 mt-16">
+      <div class="container mx-auto py-12 px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="font-bold text-white mb-4">The ChitraHarsha</h4>
+            <p class="text-sm">Wonderful joy through inclusive play.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#games" class="hover:text-white">Games</a></li>
+              <li><a href="#blog" class="hover:text-white">Blog</a></li>
+              <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white mb-4">Legal</h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="#privacy-policy"
+                  id="privacy-policy-link"
+                  class="hover:text-white"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white mb-4">Follow Us</h4>
+            <!-- Social Icons can go here -->
+          </div>
+        </div>
+        <div class="mt-8 border-t border-slate-700 pt-6 text-center text-sm">
+          <p>
+            &copy; 2025 The ChitraHarsha. All Rights Reserved. Proudly made in
+            India.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- Login / Register Modal -->
+    <div
+      id="auth-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-md p-8 rounded-2xl shadow-2xl transform scale-95"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold text-slate-800" id="auth-title">
+            Welcome
+          </h2>
+          <button
+            id="close-auth-modal-btn"
+            class="text-slate-500 hover:text-slate-800"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="flex border-b border-slate-200 mb-6">
+          <button
+            id="login-tab"
+            class="tab-btn py-2 px-4 border-b-2 font-semibold active"
+          >
+            Sign In
+          </button>
+          <button
+            id="register-tab"
+            class="tab-btn py-2 px-4 border-b-2 font-semibold text-slate-500"
+          >
+            Sign Up
+          </button>
+        </div>
+        <!-- Login Form -->
+        <form id="login-form">
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="w-full px-4 py-2 mb-4 border rounded-lg"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            class="w-full px-4 py-2 mb-6 border rounded-lg"
+            required
+          />
+          <button
+            type="submit"
+            class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg"
+          >
+            Sign In
+          </button>
+        </form>
+        <!-- Register Form -->
+        <form id="register-form" class="hidden">
+          <input
+            type="text"
+            placeholder="Full Name"
+            class="w-full px-4 py-2 mb-4 border rounded-lg"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="w-full px-4 py-2 mb-4 border rounded-lg"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            class="w-full px-4 py-2 mb-6 border rounded-lg"
+            required
+          />
+          <button
+            type="submit"
+            class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg"
+          >
+            Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- The ChitraHarsha VPK Pay Modal -->
+    <div
+      id="payment-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-lg p-8 rounded-2xl shadow-2xl transform scale-95"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h2
+            class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600"
+          >
+            The ChitraHarsha VPK Pay
+          </h2>
+          <button
+            id="close-payment-modal-btn"
+            class="text-slate-500 hover:text-slate-800"
+          >
+            &times;
+          </button>
+        </div>
+        <p class="text-slate-600 mb-6">
+          Complete your secure payment for the Premium Plan.
+        </p>
+        <div class="flex space-x-4 mb-6">
+          <button
+            id="upi-option"
+            class="payment-option flex-1 p-4 border-2 rounded-lg text-center selected"
+          >
+            <span class="font-bold">UPI Pay</span>
+          </button>
+          <button
+            id="crypto-option"
+            class="payment-option flex-1 p-4 border-2 rounded-lg text-center"
+          >
+            <span class="font-bold">Crypto Pay</span>
+          </button>
+        </div>
+        <!-- UPI Content -->
+        <div id="upi-content">
+          <p class="text-center text-slate-600 mb-4">
+            Scan the QR code with your favorite UPI app.
+          </p>
+          <img
+            src="https://placehold.co/256x256/ffffff/000000?text=Scan+to+Pay"
+            alt="UPI QR Code"
+            class="mx-auto rounded-lg shadow-md"
+          />
+        </div>
+        <!-- Crypto Content -->
+        <div id="crypto-content" class="hidden text-center">
+          <p class="text-slate-600 mb-4">
+            Connect your wallet to complete the transaction.
+          </p>
+          <div class="flex justify-center space-x-4 mb-6">
+            <!-- Placeholder icons for crypto -->
+            <span class="font-bold text-2xl">₿</span
+            ><span class="font-bold text-2xl">Ξ</span>
+          </div>
+          <button
+            class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg"
+          >
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div
+      id="privacy-policy-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-2xl p-8 rounded-2xl shadow-2xl transform scale-95"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold text-slate-800">Privacy Policy</h2>
+          <button
+            id="close-privacy-modal-btn"
+            class="text-slate-500 hover:text-slate-800"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="prose max-h-[60vh] overflow-y-auto text-slate-600">
+          <p><strong>Last Updated: 17 October 2025</strong></p>
+          <p>
+            The ChitraHarsha is committed to protecting your privacy. This
+            policy outlines our practices concerning the collection, use, and
+            sharing of your information in compliance with India's Digital
+            Personal Data Protection (DPDP) Act and IT Act.
+          </p>
+          <h4>Data Collection</h4>
+          <p>
+            We collect information you provide during registration (name, email)
+            and usage data to improve our services. All data is stored securely
+            on the Government of India's Meghraj Cloud.
+          </p>
+          <h4>Data Usage</h4>
+          <p>
+            Your data is used to personalize your experience, provide customer
+            support, and process payments securely through our VPK Pay system.
+            We do not sell your personal data to third parties.
+          </p>
+          <!-- More content here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Modal Handling Functionality ---
+        const openModal = (modal) => {
+          const modalContent = modal.querySelector(".modal-content");
+          modal.classList.remove("hidden");
+          setTimeout(() => {
+            modal.classList.remove("opacity-0");
+            modalContent.classList.remove("scale-95");
+          }, 10);
+        };
+
+        const closeModal = (modal) => {
+          const modalContent = modal.querySelector(".modal-content");
+          modal.classList.add("opacity-0");
+          modalContent.classList.add("scale-95");
+          setTimeout(() => modal.classList.add("hidden"), 300);
+        };
+
+        // --- Auth Modal (Login/Register) ---
+        const authModal = document.getElementById("auth-modal");
+        const loginRegisterBtn = document.getElementById("login-register-btn");
+        const closeAuthBtn = document.getElementById("close-auth-modal-btn");
+        const loginTab = document.getElementById("login-tab");
+        const registerTab = document.getElementById("register-tab");
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+
+        loginRegisterBtn.addEventListener("click", () => openModal(authModal));
+        closeAuthBtn.addEventListener("click", () => closeModal(authModal));
+
+        loginTab.addEventListener("click", () => {
+          loginTab.classList.add("active");
+          registerTab.classList.remove("active");
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        });
+
+        registerTab.addEventListener("click", () => {
+          registerTab.classList.add("active");
+          loginTab.classList.remove("active");
+          registerForm.classList.remove("hidden");
+          loginForm.classList.add("hidden");
+        });
+
+        // --- Payment Modal (VPK Pay) ---
+        const paymentModal = document.getElementById("payment-modal");
+        const goPremiumBtn = document.getElementById("go-premium-btn");
+        const closePaymentBtn = document.getElementById(
+          "close-payment-modal-btn"
+        );
+        const upiOption = document.getElementById("upi-option");
+        const cryptoOption = document.getElementById("crypto-option");
+        const upiContent = document.getElementById("upi-content");
+        const cryptoContent = document.getElementById("crypto-content");
+
+        goPremiumBtn.addEventListener("click", () => openModal(paymentModal));
+        closePaymentBtn.addEventListener("click", () =>
+          closeModal(paymentModal)
+        );
+
+        upiOption.addEventListener("click", () => {
+          upiOption.classList.add("selected");
+          cryptoOption.classList.remove("selected");
+          upiContent.classList.remove("hidden");
+          cryptoContent.classList.add("hidden");
+        });
+
+        cryptoOption.addEventListener("click", () => {
+          cryptoOption.classList.add("selected");
+          upiOption.classList.remove("selected");
+          cryptoContent.classList.remove("hidden");
+          upiContent.classList.add("hidden");
+        });
+
+        // --- Privacy Policy Modal ---
+        const privacyModal = document.getElementById("privacy-policy-modal");
+        const privacyLink = document.getElementById("privacy-policy-link");
+        const closePrivacyBtn = document.getElementById(
+          "close-privacy-modal-btn"
+        );
+
+        privacyLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(privacyModal);
+        });
+        closePrivacyBtn.addEventListener("click", () =>
+          closeModal(privacyModal)
+        );
+
+        // --- Close modals with background click ---
+        [authModal, paymentModal, privacyModal].forEach((modal) => {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal(modal);
+          });
+        });
+
+        // --- Game Filtering Logic (remains the same) ---
+        // ... (Code from previous version)
+      });
+    </script>
+  </body>
+</html>
